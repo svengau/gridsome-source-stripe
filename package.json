@@ -1,0 +1,37 @@
+{
+  "name": "gridsome-source-stripe",
+  "version": "0.0.1",
+  "description": "Gridsome Source Plugin for building websites using Stripe as a data source",
+  "author": {
+    "email": "svengau@gmail.com",
+    "name": "Sven Gaubert"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/svengau/gridsome-source-stripe"
+  },
+  "bugs": {
+    "url": "https://github.com/svengau/gridsome-source-stripe"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\"",
+    "format": "prettier --write '*.js'"
+  },
+  "keywords": [
+    "gridsome",
+    "gridsome-plugin",
+    "gridsome-source-plugin",
+    "stripe"
+  ],
+  "dependencies": {
+    "stripe": "8.32.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.5.3",
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": [
+    "format"
+  ]
+}

@@ -14,8 +14,7 @@ plugins: [
   {
     use: 'gridsome-source-stripe',
     options: {
-      bucketSlug: 'gridsome-blog-stripe',
-      objectTypes: { products: { expand: ['data.skus'] }, plans: {</* query options for plans */>} },
+      objectTypes: { product: { expand: ['data.skus'] }, plans: {</* query options for plans */>} },
       secretKey: 'xxxxxxxxx',
     },
   },
@@ -24,11 +23,11 @@ plugins: [
 
 ## How to query and filter
 
-You can query the nodes created from Cosmic JS with the following:
+For example, you can query the product nodes created from Stripe with the following:
 
 ```javascript
-query IndexQuery {
-  allStripeProducts {
+query products {
+  allStripeProduct {
     edges {
       node {
         id
@@ -43,8 +42,8 @@ query IndexQuery {
 and you can filter specific node using this:
 
 ```javascript
-query query($id: String!) {
-  stripeProducts(id: $id) {
+query product($id: String!) {
+  stripeProduct(id: $id) {
     id
     name
   }
