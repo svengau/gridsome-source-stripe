@@ -1,6 +1,6 @@
 # Gridsome Source for Stripe
 
-Source plugin for fetching data into [Gridsome](https://gridsome.org/) from [Stripe](https://stripe.com/).
+Source plugin for fetching data from [Stripe](https://stripe.com/) into [Gridsome](https://gridsome.org/).
 
 ## Install
 
@@ -16,10 +16,16 @@ plugins: [
     options: {
       objectTypes: { product: { expand: ['data.skus'] }, plans: {</* query options for plans */>} },
       secretKey: 'xxxxxxxxx',
+      // optional params
+      stripeOptions: {},
+      downloadFiles: true,
+      imageDirectory: 'stripe_images',
     },
   },
 ];
 ```
+
+if downloadFiles is `true` the plugin will download all assets associated to fields `image` and `images` into `imageDirectory`.
 
 ## How to query and filter
 
@@ -49,3 +55,7 @@ query product($id: String!) {
   }
 }
 ```
+
+## Sponsor
+
+This plugin has been developed with the kind support of [Fullstack Rocket](https://www.fullstackrocket.com/)

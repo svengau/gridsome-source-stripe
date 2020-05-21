@@ -25,6 +25,7 @@
     "stripe"
   ],
   "dependencies": {
+    "debug": "^4.1.1",
     "slugify": "^1.4.0",
     "stripe": "8.32.0"
   },
