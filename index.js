@@ -9,7 +9,7 @@ class StripeSource {
   static defaultOptions() {
     return {
       typeName: 'Stripe',
-      objectTypes: { products: { expand: ['data.skus'] } },
+      objectTypes: { product: { expand: ['data.skus'] } },
       secretKey: null,
       stripeOptions: {},
     };
@@ -35,7 +35,7 @@ class StripeSource {
 
     await Promise.all(
       Object.entries(objectTypes).map(([objectType, options]) =>
-        stripe[objectType]
+        stripe[objectType + 's']
           .list({
             limit: 100,
             ...options,
