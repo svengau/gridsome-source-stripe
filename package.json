@@ -1,6 +1,6 @@
 {
   "name": "gridsome-source-stripe",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Gridsome Source Plugin for building websites using Stripe as a data source",
   "author": {
     "email": "svengau@gmail.com",
