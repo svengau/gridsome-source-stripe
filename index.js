@@ -1,7 +1,8 @@
 const Stripe = require('stripe');
+const slugify = require('slugify');
 
 // https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore
-const upperFirst = (string) => {
+const upperFirst = string => {
   return string ? string.charAt(0).toUpperCase() + string.slice(1) : '';
 };
 
@@ -17,7 +18,7 @@ class StripeSource {
 
   constructor(api, options) {
     this.options = options;
-    api.loadSource((args) => this.fetchContent(args));
+    api.loadSource(args => this.fetchContent(args));
   }
 
   async fetchContent(store) {
@@ -44,7 +45,12 @@ class StripeSource {
             const contentType = addCollection({
               typeName: `${typeName}${upperFirst(objectType)}`,
             });
-            data.forEach((item) => contentType.addNode(item));
+            data.forEach(node => {
+              if (node.name) {
+                node.slug = slugify(node.name, { lower: true });
+              }
+              return contentType.addNode(node);
+            });
           })
       )
     );
